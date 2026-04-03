@@ -35,7 +35,7 @@ const services = [
 
 export default function Services() {
   return (
-    <section className="relative py-20 overflow-hidden">
+    <section className="relative py-20 overflow-hidden" id="services">
       {/* background grid */}
       <div className="absolute inset-0 bg-[linear-gradient(#e5e7eb_1px,transparent_1px),linear-gradient(90deg,#e5e7eb_1px,transparent_1px)] bg-[size:42px_42px] opacity-30" />
 
@@ -47,7 +47,7 @@ export default function Services() {
             Trusted By
           </h2>
           <div className="mt-6 overflow-hidden relative">
-            <div className="flex gap-12 animate-marquee whitespace-nowrap">
+            <div className="flex gap-10 md:gap-12 animate-marquee whitespace-nowrap">
               {[...trusted, ...trusted].map((name, i) => (
                 <span key={i} className="text-lg font-medium text-gray-700">
                   {name}

@@ -40,38 +40,54 @@ export default function Dashboard() {
   return (
     <div className="p-6">
       <h2 className="text-3xl font-bold mb-6">Admin Dashboard</h2>
-      <table className="w-full border-collapse border border-gray-300 rounded-lg overflow-hidden">
-        <thead className="bg-gray-100">
+      <table className="w-full text-sm bg-white rounded-lg overflow-hidden shadow-sm">
+
+        <thead className="bg-gray-100 text-gray-600">
+
           <tr>
-            <th className="border p-2 text-left">Title</th>
-            <th className="border p-2 text-left">Tech Stack</th>
-            <th className="border p-2 text-left">Actions</th>
+            <th className="px-4 py-3 text-left">Title</th>
+            <th className="px-4 py-3 text-left hidden md:table-cell">Tech Stack</th>
+            <th className="px-4 py-3 text-left">Actions</th>
           </tr>
+
         </thead>
+
         <tbody>
+
           {projects.map((project) => (
-            <tr key={project._id} className="hover:bg-gray-50 transition">
-              <td className="border p-2">{project.title}</td>
-              <td className="border p-2">{project.tech.join(", ")}</td>
-              <td className="border p-2 flex gap-2">
+
+            <tr key={project._id} className="border-t hover:bg-gray-50">
+
+              <td className="px-4 py-3">{project.title}</td>
+
+              <td className="px-4 py-3 hidden md:table-cell text-gray-500">
+                {project.tech.join(", ")}
+              </td>
+
+              <td className="px-4 py-3 flex gap-2">
+
                 <button
-                  onClick={() =>
-                    (window.location.href = `/admin/edit/${project._id}`)
-                  }
-                  className="px-2 py-1 bg-indigo-500 text-white rounded hover:bg-indigo-600"
+                  onClick={() => (window.location.href = `/admin/edit/${project._id}`)}
+                  className="px-3 py-1 text-sm bg-indigo-500 text-white rounded hover:bg-indigo-600"
                 >
                   Edit
                 </button>
+
                 <button
                   onClick={() => deleteProject(project._id)}
-                  className="px-2 py-1 bg-red-500 text-white rounded hover:bg-red-600"
+                  className="px-3 py-1 text-sm bg-red-500 text-white rounded hover:bg-red-600"
                 >
                   Delete
                 </button>
+
               </td>
+
             </tr>
+
           ))}
+
         </tbody>
+
       </table>
     </div>
   );

@@ -1,76 +1,119 @@
 import toast from "react-hot-toast";
-import { Link, Outlet, useNavigate } from "react-router-dom";
+import { NavLink, Outlet, useNavigate } from "react-router-dom";
 
 const Layout = () => {
 
-      const navigate = useNavigate();
+  const navigate = useNavigate();
 
-    const dashboardicon = (
-        <svg className="w-6 h-6" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
-            <path stroke="currentColor" strokeLinejoin="round" strokeWidth="2" d="M4 5a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v2a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V5Zm16 14a1 1 0 0 1-1 1h-4a1 1 0 0 1-1-1v-2a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v2ZM4 13a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v6a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1v-6Zm16-2a1 1 0 0 1-1 1h-4a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v6Z" />
-        </svg>
-    );
+  const dashboardicon = (
+    <svg className="w-5 h-5" viewBox="0 0 24 24" fill="none">
+      <path stroke="currentColor" strokeWidth="2"
+        d="M4 5a1 1 0 011-1h4a1 1 0 011 1v2a1 1 0 01-1 1H5a1 1 0 01-1-1V5Zm16 14a1 1 0 01-1 1h-4a1 1 0 01-1-1v-2a1 1 0 011-1h4a1 1 0 011 1v2ZM4 13a1 1 0 011-1h4a1 1 0 011 1v6a1 1 0 01-1 1H5a1 1 0 01-1-1v-6Zm16-2a1 1 0 01-1 1h-4a1 1 0 01-1-1V5a1 1 0 011-1h4a1 1 0 011 1v6Z"
+      />
+    </svg>
+  );
 
-    const addicon = (
-        <svg className="w-6 h-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 4v16m8-8H4" />
-        </svg>
-    );
+  const addicon = (
+    <svg className="w-5 h-5" viewBox="0 0 24 24" fill="none">
+      <path stroke="currentColor" strokeWidth="2"
+        d="M12 4v16m8-8H4"
+      />
+    </svg>
+  );
 
-    const sidebarLinks = [
-        { name: "Dashboard", path: "dashboard", icon: dashboardicon },
-        { name: "Add Project", path: "add-project", icon: addicon },
-    ];
+  const sidebarLinks = [
+    { name: "Dashboard", path: "dashboard", icon: dashboardicon },
+    { name: "Add Project", path: "add-project", icon: addicon },
+  ];
 
+  const handleLogout = () => {
+    localStorage.removeItem("adminToken");
+    toast.success("Logged Out!");
+    navigate("/login");
+  };
 
-    const handleLogout = (e) => {
-        e.preventDefault();
-        localStorage.removeItem("adminToken");
-        toast.success("Logged Out!");
-        navigate("/login")
-    }
+  return (
 
-    return (
-        <div className="flex h-screen">
-            {/* Sidebar */}
-            <div className="md:w-64 w-16 border-r h-full text-base border-gray-300 pt-16 flex flex-col transition-all duration-300 bg-white">
-                {sidebarLinks.map((item, index) => (
-                    <Link to={item.path} key={index}
-                        className={`flex items-center py-3 px-4 gap-3 
-                            ${index === 0 ? "border-r-4 md:border-r-[6px] bg-indigo-500/10"
-                                : "hover:bg-gray-100/90 border-white text-gray-700"
-                            }`
-                        }
-                    >
-                        {item.icon}
-                        <p className="md:block hidden text-center">{item.name}</p>
-                    </Link>
-                ))}
-            </div>
+    <div className="flex h-screen bg-gray-50">
 
-            {/* Right side */}
-            <div className="flex-1 flex flex-col">
-                {/* Navbar */}
-                <div className="flex items-center justify-between px-4 md:px-8 border-b border-gray-300 py-3 bg-white transition-all duration-300">
-                    <Link
-                        to="/admin"
-                        className="text-xl font-semibold tracking-tight text-gray-900 logo"
-                    >
-                        Duo Stack
-                    </Link>
-                    <div className="flex items-center gap-5 text-gray-500">
-                        <p>Hi! Admin</p>
-                        <button className='border rounded-full text-sm px-4 py-1' onClick={(e) => handleLogout(e)}>Logout</button>
-                    </div>
-                </div>
+      {/* Sidebar */}
 
-                {/* Content */}
-                <div className="p-6 overflow-auto flex-1 bg-gray-50">
-                    <Outlet /> {/* <- this renders Dashboard/AddProject dynamically */}
-                </div>
-            </div>
+      <aside className="w-64 hidden md:flex flex-col border-r bg-white">
+
+        <div className="h-16 flex items-center px-6 font-semibold text-lg border-b">
+          Duo Stack
         </div>
-    );
+
+        <nav className="flex flex-col mt-4">
+
+          {sidebarLinks.map((item, index) => (
+
+            <NavLink
+              key={index}
+              to={item.path}
+              className={({ isActive }) =>
+                `flex items-center gap-3 px-6 py-3 text-sm transition
+                ${isActive
+                  ? "bg-indigo-50 text-indigo-600 border-r-4 border-indigo-600"
+                  : "text-gray-600 hover:bg-gray-100"
+                }`
+              }
+            >
+              {item.icon}
+              {item.name}
+            </NavLink>
+
+          ))}
+
+        </nav>
+
+      </aside>
+
+      {/* Main area */}
+
+      <div className="flex flex-col flex-1">
+
+        {/* Navbar */}
+
+        <header className="h-16 flex items-center justify-between px-8 bg-white border-b">
+
+          <h1 className="text-lg font-semibold text-gray-900">
+            Admin Panel
+          </h1>
+
+          <div className="flex items-center gap-6">
+
+            <p className="text-sm text-gray-500">
+              Hi, Admin
+            </p>
+
+            <button
+              onClick={handleLogout}
+              className="text-sm border px-4 py-1 rounded-full hover:bg-gray-100"
+            >
+              Logout
+            </button>
+
+          </div>
+
+        </header>
+
+        {/* Content */}
+
+        <main className="flex-1 overflow-auto p-8">
+
+          <div className="max-w-5xl mx-auto">
+
+            <Outlet />
+
+          </div>
+
+        </main>
+
+      </div>
+
+    </div>
+  );
 };
 
 export default Layout;

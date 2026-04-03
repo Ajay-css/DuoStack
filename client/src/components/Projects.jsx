@@ -89,6 +89,7 @@ export default function Projects() {
     <section
       className="relative py-28 px-6 max-w-7xl mx-auto"
       ref={containerRef}
+      id="projects"
       aria-label="Duo Stack Projects Timeline"
     >
 

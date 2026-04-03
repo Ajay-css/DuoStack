@@ -10,3 +10,31 @@ body {
 .logo {
     font-family: "Playwrite IE";
 }
+
+html {
+    scroll-behavior: smooth;
+}
+
+* {
+    scroll-margin-top: 100px;
+}
+
+@keyframes marquee {
+    0% {
+        transform: translateX(0%);
+    }
+
+    100% {
+        transform: translateX(-50%);
+    }
+}
+
+.animate-marquee {
+    animation: marquee 20s linear infinite;
+}
+
+@media (max-width: 768px) {
+    .animate-marquee {
+        animation: marquee 10s linear infinite;
+    }
+}

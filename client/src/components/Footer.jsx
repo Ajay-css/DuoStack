@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 const Footer = () => {
     return (
-        <footer className="relative overflow-hidden px-6 md:px-16 lg:px-24 xl:px-32 w-full text-sm text-slate-500 bg-white pt-10">
+        <footer id='contact' className="relative overflow-hidden px-6 md:px-16 lg:px-24 xl:px-32 w-full text-sm text-slate-500 bg-white pt-10">
             <svg className="hidden md:block absolute -bottom-30 -left-80 opacity-5 w-full h-full pointer-events-none" width="68"
                 height="26" viewBox="0 0 68 26" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <g clip-path="url(#clip0_8678_1074)">
@@ -53,7 +53,7 @@ const Footer = () => {
             </div>
             <div className="flex flex-col md:flex-row items-center justify-between gap-4 py-4 border-t mt-6 border-slate-200">
                 <p className="text-center">
-                    Copyright 2025 © <a href="https://prebuiltui.com">Duo Stack</a> All Right Reserved.
+                    Copyright 2025 © <Link to={"/admin"} >Duo Stack</Link> All Right Reserved.
                 </p>
                 <div className="flex items-center gap-4">
                     <a href="/">Privacy Policy</a>
