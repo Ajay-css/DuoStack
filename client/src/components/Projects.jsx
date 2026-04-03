@@ -194,7 +194,7 @@ export default function Projects() {
                   </div>
 
                   <img
-                    src={`${API}${project.img}`}
+                    src={`${import.meta.env.VITE_PRIMARY_API}${project.img}`}
                     alt={`${project.title} preview`}
                     className="w-full h-60 object-cover"
                     loading="lazy"
