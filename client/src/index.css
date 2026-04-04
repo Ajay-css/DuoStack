@@ -38,3 +38,77 @@ html {
         animation: marquee 10s linear infinite;
     }
 }
+
+@keyframes floatSlow {
+    0% {
+        transform: translateY(0px);
+    }
+
+    50% {
+        transform: translateY(-18px);
+    }
+
+    100% {
+        transform: translateY(0px);
+    }
+}
+
+@keyframes floatMedium {
+    0% {
+        transform: translateY(0px);
+    }
+
+    50% {
+        transform: translateY(-14px);
+    }
+
+    100% {
+        transform: translateY(0px);
+    }
+}
+
+@keyframes floatFast {
+    0% {
+        transform: translateY(0px);
+    }
+
+    50% {
+        transform: translateY(-10px);
+    }
+
+    100% {
+        transform: translateY(0px);
+    }
+}
+
+.animate-floatSlow {
+    animation: floatSlow 6s ease-in-out infinite;
+}
+
+.animate-floatMedium {
+    animation: floatMedium 5s ease-in-out infinite;
+}
+
+.animate-floatFast {
+    animation: floatFast 4s ease-in-out infinite;
+}
+
+/* Modern SaaS Scrollbar */
+
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: #f3f4f6;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #9ca3af;
+    border-radius: 10px;
+    transition: background 0.3s ease;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #6b7280;
+}

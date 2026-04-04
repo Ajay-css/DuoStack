@@ -5,6 +5,8 @@ import Projects from "../components/Projects";
 import Testimonials from "../components/Testimonials";
 import Footer from "../components/Footer";
 import Promotional from "../components/Promotional";
+import Pricing from "../components/Pricing";
+import TechStack from "../components/TechStack";
 
 function Home() {
   return (
@@ -13,7 +15,9 @@ function Home() {
       <main>
         <Hero />
         <Services />
+        <TechStack />
         <Projects />
+        <Pricing />
         <Testimonials />
         <Promotional />
       </main>

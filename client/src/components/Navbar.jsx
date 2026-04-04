@@ -19,6 +19,7 @@ export default function Navbar() {
         { name: "Home", path: "#" },
         { name: "Services", path: "#services" },
         { name: "Projects", path: "#projects" },
+        { name: "Pricing", path: "#pricing" },
         { name: "Contact", path: "#contact" },
     ]
 
@@ -55,12 +56,12 @@ export default function Navbar() {
 
                 {/* Desktop Buttons */}
                 <div className="hidden md:flex items-center gap-4">
-                    <Link
-                        to="/signup"
+                    <a
+                        href="#pricing"
                         className="px-4 py-2 rounded-full bg-black text-white hover:bg-gray-900 transition"
                     >
                         Get Started
-                    </Link>
+                    </a>
                 </div>
 
                 {/* Mobile Button */}
@@ -77,14 +78,14 @@ export default function Navbar() {
                 <div className="md:hidden px-6 pb-6 pt-2 bg-white border-t border-gray-200">
                     <div className="flex flex-col gap-4">
                         {navLinks.map((link) => (
-                            <Link
+                            <a
                                 key={link.name}
-                                to={link.path}
+                                href={link.path}
                                 className="text-gray-700 hover:text-black"
                                 onClick={() => setIsOpen(false)}
                             >
                                 {link.name}
-                            </Link>
+                            </a>
                         ))}
 
                         <Link
