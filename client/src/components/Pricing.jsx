@@ -55,7 +55,7 @@ const plans = [
 
 const handleConsultation = () => {
 
-  const phoneNumber = "8122286426" // un number add pannuu
+  const phoneNumber = "918122286426" // un number add pannuu
   const message = "Hello DuoStack, I need a website consultation."
 
   const isMobile = /Android|iPhone|iPad|iPod|Opera Mini|IEMobile|WPDesktop/i.test(navigator.userAgent)
