@@ -47,7 +47,7 @@ export default function Services() {
             Trusted By
           </h2>
           <div className="mt-6 overflow-hidden relative">
-            <div className="flex gap-10 md:gap-12 animate-marquee whitespace-nowrap">
+            <div className="flex gap-10 md:gap-12 animate-marquee whitespace-nowrap min-w-max">
               {[...trusted, ...trusted].map((name, i) => (
                 <span key={i} className="text-lg font-medium text-gray-700">
                   {name}

@@ -21,7 +21,7 @@ html {
 
 @keyframes marquee {
     0% {
-        transform: translateX(0%);
+        transform: translateX(0);
     }
 
     100% {
@@ -30,12 +30,15 @@ html {
 }
 
 .animate-marquee {
-    animation: marquee 20s linear infinite;
+    display: flex;
+    animation: marquee 25s linear infinite;
 }
+
+/* Mobile speed increase */
 
 @media (max-width: 768px) {
     .animate-marquee {
-        animation: marquee 10s linear infinite;
+        animation: marquee 3s linear infinite;
     }
 }
 

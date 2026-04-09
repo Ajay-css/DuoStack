@@ -53,6 +53,25 @@ const plans = [
   }
 ]
 
+const handleConsultation = () => {
+
+  const phoneNumber = "8122286426" // un number add pannuu
+  const message = "Hello DuoStack, I need a website consultation."
+
+  const isMobile = /Android|iPhone|iPad|iPod|Opera Mini|IEMobile|WPDesktop/i.test(navigator.userAgent)
+
+  if (isMobile) {
+
+    window.location.href = `tel:+${phoneNumber}`
+
+  } else {
+
+    window.open(`https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`, "_blank")
+
+  }
+
+}
+
 export default function Pricing() {
   return (
     <section id="pricing" className="py-28 px-6 bg-gray-50">
@@ -173,11 +192,13 @@ export default function Pricing() {
           Book a free consultation call and we’ll help you plan your project.
         </p>
 
-        <button className="mt-8 inline-flex items-center gap-3 px-8 py-4 bg-black text-white rounded-full font-medium hover:scale-105 hover:shadow-xl transition-all duration-300">
+        <button
+          onClick={handleConsultation}
+          className="mt-8 inline-flex items-center gap-3 px-8 py-4 bg-black text-white rounded-full font-medium hover:scale-105 hover:shadow-xl transition-all duration-300"
+        >
           Book a Free Consultation Call
           <PhoneCall size={20} />
         </button>
-
       </div>
 
     </section>

@@ -1,10 +1,12 @@
 import { useState, useEffect } from "react"
 import { Menu, X } from "lucide-react"
 import { Link } from "react-router-dom"
+import LeadModel from "./LeadModel"
 
 export default function Navbar() {
     const [isOpen, setIsOpen] = useState(false)
     const [scrolled, setScrolled] = useState(false)
+    const [openModal, setOpenModal] = useState(false)
 
     useEffect(() => {
         const handleScroll = () => {
@@ -26,8 +28,8 @@ export default function Navbar() {
     return (
         <header
             className={`fixed w-full top-0 z-50 transition-all duration-300 ${scrolled
-                    ? "backdrop-blur-md bg-white/70 border-b border-gray-200"
-                    : "bg-transparent"
+                ? "backdrop-blur-md bg-white/70 border-b border-gray-200"
+                : "bg-transparent"
                 }`}
         >
             <nav className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
@@ -56,12 +58,16 @@ export default function Navbar() {
 
                 {/* Desktop Buttons */}
                 <div className="hidden md:flex items-center gap-4">
-                    <a
-                        href="#pricing"
+                    <button
+                        onClick={() => setOpenModal(true)}
                         className="px-4 py-2 rounded-full bg-black text-white hover:bg-gray-900 transition"
                     >
                         Get Started
-                    </a>
+                    </button>
+
+                    {openModal && (
+                        <LeadModel close={() => setOpenModal(false)} />
+                    )}
                 </div>
 
                 {/* Mobile Button */}
@@ -87,14 +93,6 @@ export default function Navbar() {
                                 {link.name}
                             </a>
                         ))}
-
-                        <Link
-                            to="/signup"
-                            className="mt-2 px-4 py-2 rounded-full bg-black text-white text-center"
-                            onClick={() => setIsOpen(false)}
-                        >
-                            Get Started
-                        </Link>
                     </div>
                 </div>
             )}

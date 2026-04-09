@@ -20,6 +20,7 @@ import {
 } from "react-icons/si"
 
 import { VscVscode } from "react-icons/vsc"
+import LeadModel from "./LeadModel"
 
 
 const techIcons = [
@@ -42,6 +43,7 @@ export default function Hero() {
 
     const [startIndex, setStartIndex] = useState(0)
     const [visible, setVisible] = useState(true)
+    const [openModal, setOpenModal] = useState(false)
 
     useEffect(() => {
 
@@ -100,7 +102,7 @@ export default function Hero() {
                     </div>
                 </div>
 
-                <div className={`absolute left-14 top-[50%] transition-opacity duration-700 ${visible ? "opacity-100" : "opacity-0"} animate-floatMedium`}>
+                <div className={`absolute left-14 top-[45%] transition-opacity duration-700 ${visible ? "opacity-100" : "opacity-0"} animate-floatMedium`}>
                     <div className={`${iconStyle} ${visibleIcons[1].color}`}>
                         {visibleIcons[1].icon}
                     </div>
@@ -121,7 +123,7 @@ export default function Hero() {
                     </div>
                 </div>
 
-                <div className={`absolute right-14 top-[55%] transition-opacity duration-700 ${visible ? "opacity-100" : "opacity-0"} animate-floatSlow`}>
+                <div className={`absolute right-14 top-[45%] transition-opacity duration-700 ${visible ? "opacity-100" : "opacity-0"} animate-floatSlow`}>
                     <div className={`${iconStyle} ${visibleIcons[4].color}`}>
                         {visibleIcons[4].icon}
                     </div>
@@ -168,16 +170,20 @@ export default function Hero() {
                 </p>
 
                 <div className="mt-10 flex justify-center gap-4 flex-wrap">
-
-                    <button className="px-7 py-3 bg-black text-white rounded-full hover:scale-105 transition duration-300 shadow-lg">
-                        View Our Work
-                    </button>
-
-                    <a href="#pricing">
-                        <button className="px-7 py-3 border border-gray-300 rounded-full hover:bg-gray-100 transition duration-300">
-                            Start Your Project
+                    <a href="#projects">
+                        <button className="px-7 py-3 bg-black text-white rounded-full hover:scale-105 transition duration-300 shadow-lg">
+                            View Our Work
                         </button>
                     </a>
+                    
+                    <button
+                        onClick={() => setOpenModal(true)}
+                        className="px-7 py-3 border border-gray-300 rounded-full hover:bg-gray-100 transition duration-300">
+                        Start Your Project
+                    </button>
+                    {openModal && (
+                        <LeadModel close={() => setOpenModal(false)} />
+                    )}
 
                 </div>
 

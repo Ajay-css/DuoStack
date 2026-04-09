@@ -7,6 +7,8 @@ import Footer from "../components/Footer";
 import Promotional from "../components/Promotional";
 import Pricing from "../components/Pricing";
 import TechStack from "../components/TechStack";
+import BuildProcess from "../components/BuildProcess";
+import CostCalculator from "../components/CostCalculator";
 
 function Home() {
   return (
@@ -17,6 +19,7 @@ function Home() {
         <Services />
         <TechStack />
         <Projects />
+        <CostCalculator />
         <Pricing />
         <Testimonials />
         <Promotional />
