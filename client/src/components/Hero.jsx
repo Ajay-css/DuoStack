@@ -117,7 +117,7 @@ export default function Hero() {
 
                 {/* RIGHT SIDE */}
 
-                <div className={`absolute right-36 top-32 transition-opacity duration-700 ${visible ? "opacity-100" : "opacity-0"} animate-floatMedium`}>
+                <div className={`absolute right-36 top-28 transition-opacity duration-700 ${visible ? "opacity-100" : "opacity-0"} animate-floatMedium`}>
                     <div className={`${iconStyle} ${visibleIcons[3].color}`}>
                         {visibleIcons[3].icon}
                     </div>

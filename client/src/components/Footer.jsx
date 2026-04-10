@@ -1,5 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom';
+import logo from "../assets/duostack_logo.jpg"
 
 const Footer = () => {
     return (
@@ -18,12 +19,11 @@ const Footer = () => {
             </svg>
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-14">
                 <div className="sm:col-span-2 lg:col-span-1">
-                    <Link
-                        to="/"
-                        className="text-xl font-semibold tracking-tight text-gray-900 logo"
-                    >
-                        Duo Stack
-                    </Link>
+                    <img
+     			 src={logo}
+  			 alt="Duo Stack logo"
+  			 className="h-16 md:h-20 w-auto object-contain"
+		 />
                     <p className="text-sm/7 mt-6">
                         Duo Stack helps startups and businesses build scalable MERN stack applications,
                         powerful SaaS platforms, and high-performance web experiences.
