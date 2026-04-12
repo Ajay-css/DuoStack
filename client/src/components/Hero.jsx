@@ -81,6 +81,7 @@ export default function Hero() {
         <section
             className="relative min-h-screen flex items-center justify-center overflow-hidden"
             aria-label="Duo Stack Hero Section"
+            id="hero"
         >
 
             {/* Grid background */}

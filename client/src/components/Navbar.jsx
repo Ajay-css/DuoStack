@@ -27,11 +27,22 @@ export default function Navbar() {
         { name: "Contact", path: "#contact" },
     ]
 
+    const handleGetStarted = () => {
+        const hero = document.getElementById("hero")
+        if (hero) {
+            hero.scrollIntoView({ behavior: "smooth" })
+        }
+
+        setTimeout(() => {
+            setOpenModal(true)
+        }, 400)
+    }
+
     return (
         <header
             className={`fixed w-full top-0 z-50 transition-all duration-300 ${scrolled
-                    ? "backdrop-blur-md bg-white/70 border-b border-gray-200"
-                    : "bg-transparent"
+                ? "backdrop-blur-md bg-white/70 border-b border-gray-200"
+                : "bg-transparent"
                 }`}
         >
             <nav className="max-w-7xl mx-auto px-6 h-[80px] grid grid-cols-[auto_1fr_auto] items-center">
@@ -57,7 +68,7 @@ export default function Navbar() {
                 {/* Right Button */}
                 <div className="hidden md:flex justify-end">
                     <button
-                        onClick={() => setOpenModal(true)}
+                        onClick={handleGetStarted}
                         className="px-5 py-2 rounded-full bg-black text-white hover:bg-gray-900 transition"
                     >
                         Get Started
