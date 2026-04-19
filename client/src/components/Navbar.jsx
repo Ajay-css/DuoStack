@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react"
 import { Menu, X } from "lucide-react"
 import { Link } from "react-router-dom"
-import logo from "../assets/duostack_logo.jpg"
+import logo from "../assets/duostack_logo.png"
 import LeadModel from "./LeadModel"
 
 export default function Navbar() {
@@ -45,11 +45,15 @@ export default function Navbar() {
                 : "bg-transparent"
                 }`}
         >
-            <nav className="max-w-7xl mx-auto px-6 h-[80px] grid grid-cols-[auto_1fr_auto] items-center">
+            <nav className="max-w-7xl mx-auto px-6 h-[70px] md:h-[80px] grid grid-cols-[auto_1fr_auto] items-center">
 
                 {/* Logo */}
-                <Link to="/" className="flex items-center h-[80px] overflow-hidden">
-                    <img src={logo} alt="logo" className="h-[130px] w-auto object-contain" />
+                <Link to="/" className="flex items-center">
+                    <img
+                        src={logo}
+                        alt="DuoStack Logo"
+                        className="h-20 md:h-24 w-auto object-contain"
+                    />
                 </Link>
 
                 {/* Center Menu */}

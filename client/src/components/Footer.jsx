@@ -1,6 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom';
-import logo from "../assets/duostack_logo.jpg"
+import logo from "../assets/duostack_logo.png"
 
 const Footer = () => {
     return (
